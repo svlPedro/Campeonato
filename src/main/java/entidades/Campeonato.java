@@ -1,9 +1,11 @@
 package entidades;
 
-import java.util.Date;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
 
 public class Campeonato {
-
+	@Id
+	@GeneratedValue
 	private Integer id;
 	private String nome;
 	
