@@ -11,7 +11,7 @@ public class Usuario {
 	private Integer id;
 	private String login;
 	private String nome;
-	private Integer senha;
+	private String senha;
 	
 	public Integer getId() {
 		return id;
@@ -31,10 +31,10 @@ public class Usuario {
 	public void setNome(String nome) {
 		this.nome = nome;
 	}
-	public Integer getSenha() {
+	public String getSenha() {
 		return senha;
 	}
-	public void setSenha(Integer senha) {
+	public void setSenha(String senha) {
 		this.senha = senha;
 	}	
 }
