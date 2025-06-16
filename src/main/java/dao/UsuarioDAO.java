@@ -29,7 +29,7 @@ public class UsuarioDAO {
 	
 	public static List<Usuario> listarTodos() {
 		EntityManager em = JPAUtil.criarEntityManager();
-		Query q = em.createQuery("select j from Jogada j");
+		Query q = em.createQuery("select u from User u");
 		List<Usuario> lista = q.getResultList();
 		em.close();
 		return lista;

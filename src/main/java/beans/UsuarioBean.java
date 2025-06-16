@@ -11,7 +11,17 @@ import entidades.Usuario;
 public class UsuarioBean {
 
 	private Usuario user;
+	
+	public UsuarioBean() {
+		user = new Usuario();
+	}
 
+	public String cadastrar() {
+		UsuarioDAO.salvar(user);
+		FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Usuário cadastrado com Sucesso!"));
+		return "opcoes";
+	}
+	
 	public String login() {
 		Usuario usuarioEncontrado = UsuarioDAO.login(user.getLogin());
 
@@ -28,7 +38,7 @@ public class UsuarioBean {
 		}
 		FacesContext.getCurrentInstance().addMessage(null,
 				new FacesMessage(FacesMessage.SEVERITY_INFO, "Login efetuado com sucesso!", null));
-		return null;
+		return "opcoes";
 	}
 	
 	public Usuario getUser() {

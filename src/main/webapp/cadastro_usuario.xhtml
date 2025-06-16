@@ -17,14 +17,16 @@
 	            	<p:autoUpdate/>
 	        	</p:messages>
 				<p:panelGrid columns="2">
+					<p:outputLabel value="Nome: "/>
+					<p:inputText value="#{usuarioBean.user.nome}" required="true" label="Descrição" requiredMessage="O campo é Obrigatório"/>
+					
 					<p:outputLabel value="Login: "/>
 					<p:inputText value="#{usuarioBean.user.login}" required="true" label="Descrição" requiredMessage="O campo é Obrigatório"/>
 				
 					<p:outputLabel value="Senha: "/>
 					<p:inputText value="#{usuarioBean.user.senha}" required="true" label="Descrição" requiredMessage="O campo é Obrigatório"/>
 					
-					<p:commandButton value="Logar" action="#{usuarioBean.login}" update="formulario"/>
-					<p:commandButton value="Cadastrar" action="cadastro_usuario.xhtml?faces-redirect=true" immediate="true" process="@this"/>
+					<p:commandButton value="Cadastrar" action="#{usuarioBean.cadastrar}" update="formulario"/>
 				</p:panelGrid>		
 			</h:form>
 		</div>
