@@ -1,0 +1,53 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	  xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	  xmlns:h="http://xmlns.jcp.org/jsf/html"
+	  xmlns:p="http://primefaces.org/ui"
+	  xmlns:f="http://xmlns.jcp.org/jsf/core">
+	  <h:head>
+	  <title>Cadastro de Jogos</title>
+	  <h:outputStylesheet library="css" name="style.css" />
+	  </h:head>
+	<h:body>
+		 <div class="painel">
+			<h:form id="formulario">
+				<p:messages id="messages" closable="true" escape="false" showDetail="true" showIcon="false">
+	            	<p:autoUpdate/>
+	        	</p:messages>
+				<p:panelGrid columns="2">
+					
+					<p:outputLabel value="Data da Partida: "/>
+					<p:datePicker id="button" value="#{jogoBean.jogo.dataPartida}" showIcon="true" showOnFocus="false" />
+					
+					<p:outputLabel value="Time Mandante: "/>
+					<p:inputText value="#{jogoBean.jogo.time1}" required="true" label="Descrição" requiredMessage="O campo é Obrigatório"/>
+				
+					<p:outputLabel value="Time Visitante: "/>
+					<p:inputText value="#{jogoBean.jogo.time2}" required="true" label="Descrição" requiredMessage="O campo é Obrigatório"/>
+				
+					<p:outputLabel value="Campeonato: (Verifique os Disponíveis)"/>
+					<p:inputText id="idCampeonato" value="#{jogoBean.idCampeonato}" required="true" type="number" label="Informe o Campeonato" requiredMessage="O campo é obrigatório">
+    					<f:validateLongRange minimum="1" />
+					</p:inputText>
+									
+					<p:outputLabel value="Quantidade de Gols do Time mandante: "/>
+					<p:inputText value="#{jogoBean.jogo.golsTime1}" required="true" type="number" label="Gols Time Mandante" requiredMessage="O campo é obrigatório">
+    					<f:validateLongRange minimum="0" />
+					</p:inputText>
+					
+					<p:outputLabel value="Quantidade de Gols do Time visitante: "/>
+					<p:inputText value="#{jogoBean.jogo.golsTime2}" required="true" type="number" label="Gols Time Mandante" requiredMessage="O campo é obrigatório">
+    					<f:validateLongRange minimum="0" />
+					</p:inputText>
+					
+					<p:outputLabel value="Campeonatos Disponíveis: "/>
+					<p:commandButton value="Verificar" action="#{campeonatoBean.listarCampeonatosMensagem}" immediate="true" process="@this"/>
+											
+					<p:commandButton value="Salvar" action="#{jogoBean.salvar}" update="formulario"/>
+				</p:panelGrid>		
+			</h:form>
+		</div>
+	</h:body>	
+</html>

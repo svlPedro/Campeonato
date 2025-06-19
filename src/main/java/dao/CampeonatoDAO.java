@@ -34,4 +34,11 @@ public class CampeonatoDAO {
 		em.close();
 		return lista;
 	}	
+	
+	public static Campeonato buscarPorId(Integer id) {
+		EntityManager em = JPAUtil.criarEntityManager();
+		Campeonato campeonato = em.find(Campeonato.class, id);
+		em.close();
+		return campeonato;
+	}
 }

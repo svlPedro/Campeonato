@@ -17,6 +17,8 @@ public class UsuarioBean {
 	}
 
 	public String cadastrar() {
+		
+		
 		UsuarioDAO.salvar(user);
 		FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Usuário cadastrado com Sucesso!"));
 		return "opcoes";
