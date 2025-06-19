@@ -24,7 +24,8 @@
 					<p:inputText value="#{usuarioBean.user.login}" required="true" label="Descrição" requiredMessage="O campo é Obrigatório"/>
 				
 					<p:outputLabel value="Senha: "/>
-					<p:inputText value="#{usuarioBean.user.senha}" required="true" label="Descrição" requiredMessage="O campo é Obrigatório"/>
+					<p:password value="#{usuarioBean.user.senha}" required="true" label="Descrição" requiredMessage="O campo é Obrigatório"
+					promptLabel="Informe sua Senha" weakLabel="Fraca" goodLabel="Boa" strongLabel="Forte" toggleMask="true" feedback="true"/>
 					
 					<p:commandButton value="Cadastrar" action="#{usuarioBean.cadastrar}" update="formulario"/>
 				</p:panelGrid>		

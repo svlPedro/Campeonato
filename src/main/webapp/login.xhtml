@@ -21,7 +21,8 @@
 					<p:inputText value="#{usuarioBean.user.login}" required="true" label="Descrição" requiredMessage="O campo é Obrigatório"/>
 				
 					<p:outputLabel value="Senha: "/>
-					<p:inputText value="#{usuarioBean.user.senha}" required="true" label="Descrição" requiredMessage="O campo é Obrigatório"/>
+					<p:password value="#{usuarioBean.user.senha}" required="true" label="Descrição" requiredMessage="O campo é Obrigatório"
+					toggleMask="true" redisplay="true"/>
 					
 					<p:commandButton value="Logar" action="#{usuarioBean.login}" update="formulario"/>
 					<p:commandButton value="Cadastrar" action="cadastro_usuario.xhtml?faces-redirect=true" immediate="true" process="@this"/>
