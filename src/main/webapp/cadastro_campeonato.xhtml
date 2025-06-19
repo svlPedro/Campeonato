@@ -7,7 +7,7 @@
 	  xmlns:p="http://primefaces.org/ui"
 	  xmlns:f="http://xmlns.jcp.org/jsf/core">
 	  <h:head>
-	  <title>Cadastro</title>
+	  <title>Cadastro de Campeonatos</title>
 	  <h:outputStylesheet library="css" name="style.css" />
 	  </h:head>
 	<h:body>
@@ -17,16 +17,11 @@
 	            	<p:autoUpdate/>
 	        	</p:messages>
 				<p:panelGrid columns="2">
-					<p:outputLabel value="Nome: "/>
-					<p:inputText value="#{usuarioBean.user.nome}" required="true" label="Descrição" requiredMessage="O campo é Obrigatório"/>
 					
-					<p:outputLabel value="Login: "/>
-					<p:inputText value="#{usuarioBean.user.login}" required="true" label="Descrição" requiredMessage="O campo é Obrigatório"/>
-				
-					<p:outputLabel value="Senha: "/>
-					<p:inputText value="#{usuarioBean.user.senha}" required="true" label="Descrição" requiredMessage="O campo é Obrigatório"/>
-					
-					<p:commandButton value="Cadastrar" action="#{usuarioBean.cadastrar}" update="formulario"/>
+					<p:outputLabel value="Nome do Campeonato: "/>
+					<p:inputText value="#{campeonatoBean.campeonato.nome}" required="true" label="Descrição" requiredMessage="O campo é Obrigatório"/>
+						
+					<p:commandButton value="Salvar" action="#{campeonatoBean.salvar}" update="formulario"/>
 				</p:panelGrid>		
 			</h:form>
 		</div>
