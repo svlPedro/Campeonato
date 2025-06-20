@@ -1,5 +1,6 @@
 package entidades;
 
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
 import javax.persistence.Column;
@@ -34,6 +35,22 @@ public class Jogo {
 	private Integer golsTime1;
 	@Column(name = "gols_time_2")
 	private Integer golsTime2;
+	
+	public String getDataPartidaFormatada() {
+	    if (dataPartida == null) {
+	        return "";
+	    }
+	    SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
+	    return sdf.format(dataPartida);
+	}
+	
+	public String getDataCadastroFormatada() {
+	    if (dataCadastro == null) {
+	        return "";
+	    }
+	    SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
+	    return sdf.format(dataCadastro);
+	}
 	
 	public Integer getId() {
 		return id;

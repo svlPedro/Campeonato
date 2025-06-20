@@ -1,0 +1,35 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	  xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	  xmlns:h="http://xmlns.jcp.org/jsf/html"
+	  xmlns:p="http://primefaces.org/ui"
+	  xmlns:f="http://xmlns.jcp.org/jsf/core">
+	  <h:head><title>Histórico de Jogos</title></h:head>
+	<h:body>
+		<h:head>
+	<title>Listagem</title>
+	</h:head>
+		<h:form id="formulario">
+			
+			<p:messages id="messages" showDetail="false" closable="true">
+	            <p:autoUpdate/>
+	        </p:messages>
+	        
+			<p:dataTable 
+			id="dt-jogos" value="#{jogoBean.lista}" var="j" 
+			selection="#{jogoBean.jogoSelecionado}" rowKey="#{j.id}" 
+			selectionMode="single"  paginator="true" rows="5" selectionRowMode="add" paginatorPosition="bottom">
+				<p:column headerText="Id"><p:outputLabel value="#{j.id}"/> </p:column>				
+				<p:column headerText="Data da Partida"><p:outputLabel value="#{j.getDataPartidaFormatada()}"/></p:column>
+				<p:column headerText="Data de Cadastro"><p:outputLabel value="#{j.getDataCadastroFormatada()}"/></p:column>
+				<p:column headerText="Time Mandante"><p:outputLabel value="#{j.time1}"/></p:column>
+				<p:column headerText="Time Visitante"><p:outputLabel value="#{j.time2}"/></p:column>
+				<p:column headerText="Campeonato"><p:outputLabel value="#{j.campeonato.nome}"/></p:column>								        	    
+				<p:column headerText="Gols Marcados pelo Mandante"><p:outputLabel value="#{j.golsTime1}"/> </p:column>
+				<p:column headerText="Gols Marcados pelo Visitante"><p:outputLabel value="#{j.golsTime2}"/> </p:column>
+			</p:dataTable>	
+		</h:form>
+	</h:body>	
+</html>

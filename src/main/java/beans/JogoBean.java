@@ -1,6 +1,7 @@
 	package beans;
 	
 	import java.util.Date;
+import java.util.List;
 
 import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
@@ -15,6 +16,8 @@ import entidades.Jogo;
 	public class JogoBean {
 	
 		private Jogo jogo;
+		private Jogo jogoSelecionado = new Jogo();
+		private List<Jogo> lista;
 		private Integer idCampeonato;
 		
 		public JogoBean() {
@@ -36,6 +39,18 @@ import entidades.Jogo;
 			return null;
 		}
 		
+		public List<Jogo> getLista() {
+			if (lista == null) {
+				lista = JogoDAO.listarTodos();
+			}
+			return lista;
+		}
+
+		public void setLista(List<Jogo> lista) {
+			this.lista = lista;
+		}
+		
+		
 		public Jogo getJogo() {
 			return jogo;
 		}
@@ -50,5 +65,13 @@ import entidades.Jogo;
 
 		public void setIdCampeonato(Integer idCampeonato) {
 			this.idCampeonato = idCampeonato;
+		}
+
+		public Jogo getJogoSelecionado() {
+			return jogoSelecionado;
+		}
+
+		public void setJogoSelecionado(Jogo jogoSelecionado) {
+			this.jogoSelecionado = jogoSelecionado;
 		}
 	}
