@@ -1,12 +1,10 @@
-	package beans;
+package beans;
 	
-	import java.util.Date;
+import java.util.Date;
 import java.util.List;
-
 import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.context.FacesContext;
-
 import dao.CampeonatoDAO;
 import dao.JogoDAO;
 import entidades.Campeonato;
@@ -37,6 +35,23 @@ import entidades.Jogo;
 			JogoDAO.salvar(jogo);
 			FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Partida cadastrada com Sucesso!"));
 			return null;
+		}
+		
+		public void salvarEdicao(org.primefaces.event.RowEditEvent<Jogo> event) {
+			Jogo jogoEditado = event.getObject();
+		    JogoDAO.salvar(jogoEditado);
+		    FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Edição realizada com sucesso!"));
+		}
+
+		public void cancelarEdicao(org.primefaces.event.RowEditEvent<Jogo> event) {
+		    FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Edição cancelada."));
+		}
+		
+		public String deletar() {
+			lista.remove(jogoSelecionado);
+		    JogoDAO.deletar(jogoSelecionado);
+		    FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Partida removida com Sucesso."));
+		    return null;
 		}
 		
 		public List<Jogo> getLista() {
