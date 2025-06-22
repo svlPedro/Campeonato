@@ -12,6 +12,7 @@ import entidades.Campeonato;
 @ManagedBean
 public class CampeonatoBean {
 
+	private List<Campeonato> lista;
 	private Campeonato campeonato;
 	
 	public CampeonatoBean() {
@@ -39,6 +40,18 @@ public class CampeonatoBean {
 	    FacesContext.getCurrentInstance().addMessage(null,
              new FacesMessage(FacesMessage.SEVERITY_INFO, "Lista de Campeonatos:", mensagem.toString()));
 	 }
+	
+	public List<Campeonato> getLista() {
+		if (lista == null) {
+			lista = CampeonatoDAO.listarTodos();
+		}
+		return lista;
+	}
+
+	public void setLista(List<Campeonato> lista) {
+		this.lista = lista;
+	}
+
 
 	public Campeonato getCampeonato() {
 		return campeonato;
