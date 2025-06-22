@@ -19,9 +19,18 @@
   		        	<p:submenu label="Usuários" icon="pi pi-fw pi-users ">
                 		<p:menuitem value="Cadastrar" action="cadastro_usuario" icon="pi pi-user-plus"/>
                 		<p:menuitem value="Listar" icon="pi pi-users"/>
-                	<p:divider />
-                		<p:menuitem value="Export" icon="pi pi-fw pi-external-link"/>
-                		<p:menuitem value="Duplicate" icon="pi pi-fw pi-copy" disabled="true"/>
+                		<p:divider />
+                	</p:submenu>
+  		        	<p:submenu label="Campeonato" icon="pi pi-align-justify">
+                		<p:menuitem value="Cadastrar" action="cadastro_campeonato" icon="pi pi-plus"/>
+                		<p:menuitem value="Listar" icon="pi pi-list"/>
+                		<p:divider />                	
+            		</p:submenu>
+  		        	<p:submenu label="Jogos" icon="pi pi-align-justify">
+                		<p:menuitem value="Cadastrar" action="cadastro_jogo" icon="pi pi-plus"/>
+                		<p:menuitem value="Listar" action="listagem" icon="pi pi-list"/>
+                		<p:divider />                	
+                		<p:menuitem value="Partidas por Time" action="buscar_por_time" icon="pi pi-search"/>
             		</p:submenu>
 				</p:menubar>		
 			</h:form>

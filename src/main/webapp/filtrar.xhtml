@@ -1,0 +1,37 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	  xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	  xmlns:h="http://xmlns.jcp.org/jsf/html"
+	  xmlns:p="http://primefaces.org/ui"
+	  xmlns:f="http://xmlns.jcp.org/jsf/core">
+	  <h:head><title>Lista Filtrada</title></h:head>
+	<h:body>
+		<h:head>
+	<title>Listagem</title>
+	</h:head>
+		<h:form id="formulario">	
+			<p:messages id="messages" showDetail="false" closable="true">
+	            <p:autoUpdate/>
+	        </p:messages>
+			<p:dataTable value="#{jogoBean.jogosFiltrados}" var="j" rows="10" paginator="true" paginatorPosition="bottom">
+			<p:column headerText="Data"><h:outputText value="#{j.dataPartidaFormatada}" /></p:column>
+            <p:column headerText="Mandante"><h:outputText value="#{j.time1}" /></p:column>
+            <p:column headerText="Visitante"><h:outputText value="#{j.time2}" /></p:column>
+            <p:column headerText="Gols Mandante"><h:outputText value="#{j.golsTime1}" /></p:column>
+            <p:column headerText="Gols Visitante"><h:outputText value="#{j.golsTime2}" /></p:column>
+			</p:dataTable>	
+			
+			<p:toolbar>
+            	<p:toolbarGroup>
+     				<p:commandButton value="Menu" action="opcoes" icon="pi pi-home"/>
+     				
+     				<i class="pi pi-bars px-2"/>
+     				
+     				<p:commandButton value="Buscar Outro Time" action="buscar_por_time" icon="pi pi-search"/>
+            	</p:toolbarGroup>
+            </p:toolbar>
+		</h:form>
+	</h:body>	
+</html>

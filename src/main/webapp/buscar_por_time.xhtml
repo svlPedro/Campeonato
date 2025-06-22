@@ -7,7 +7,7 @@
 	  xmlns:p="http://primefaces.org/ui"
 	  xmlns:f="http://xmlns.jcp.org/jsf/core">
 	  <h:head>
-	  <title>Cadastro de Campeonatos</title>
+	  <title>Buscar por Time</title>
 	  <h:outputStylesheet library="css" name="style.css" />
 	  </h:head>
 	<h:body>
@@ -17,12 +17,11 @@
 	            	<p:autoUpdate/>
 	        	</p:messages>
 				<p:panelGrid columns="2">
-					
-					<p:outputLabel value="Nome do Campeonato: "/>
-					<p:inputText value="#{campeonatoBean.campeonato.nome}" required="true" label="Descrição" requiredMessage="O campo é Obrigatório"/>
-						
-					<p:commandButton value="Salvar" action="#{campeonatoBean.salvar}" update="formulario"/>
-					<p:commandButton value="Menu" action="opcoes" immediate="true" process="@this"/>
+					<p:outputLabel value="Nome do Time: "/> 
+					<p:inputText value="#{jogoBean.nomeTimeFiltro}"/>
+	
+					<p:commandButton value="Buscar" action="#{jogoBean.filtrar}" update="formulario" icon="pi pi-search"/>
+					<p:commandButton value="Menu" action="opcoes" immediate="true" process="@this" icon="pi pi-home"/>
 				</p:panelGrid>		
 			</h:form>
 		</div>

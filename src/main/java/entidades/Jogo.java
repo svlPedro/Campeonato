@@ -8,8 +8,14 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
+import javax.persistence.NamedQuery;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+
+@NamedQuery(
+		  name = "buscarPorTime",
+		  query = "SELECT j FROM Jogo j WHERE j.time1 = :time OR j.time2 = :time"
+)
 
 @Entity
 public class Jogo {

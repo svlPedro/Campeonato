@@ -66,6 +66,10 @@
             	<p:toolbarGroup>
                 	<p:commandButton action ="#{jogoBean.deletar()}" value="Deletar" icon="pi pi-trash" styleClass="ui-button-danger"
                     update=":formulario:messages dt-jogos"/>
+                    
+                     <i class="pi pi-bars px-2"/>
+
+                    <p:commandButton value="Menu" action="opcoes" icon="pi pi-home"/>
             	</p:toolbarGroup>
             </p:toolbar>
 		</h:form>

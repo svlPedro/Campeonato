@@ -6,7 +6,6 @@ import javax.persistence.EntityManager;
 import javax.persistence.Query;
 
 import entidades.Jogo;
-import entidades.Usuario;
 import util.JPAUtil;
 
 public class JogoDAO {
@@ -35,4 +34,13 @@ public class JogoDAO {
 		em.close();
 		return lista;
 	}	
+	
+	public static List<Jogo> buscarPorTime(String time) {
+		EntityManager em = JPAUtil.criarEntityManager();
+		Query q = em.createNamedQuery("buscarPorTime");
+		q.setParameter("time", time);
+		List<Jogo> lista = q.getResultList();
+		em.close();
+		return lista;
+	}
 }

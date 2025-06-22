@@ -28,6 +28,7 @@
 					promptLabel="Informe sua Senha" weakLabel="Fraca" goodLabel="Boa" strongLabel="Forte" toggleMask="true" feedback="true"/>
 					
 					<p:commandButton value="Cadastrar" action="#{usuarioBean.cadastrar}" update="formulario"/>
+					<p:commandButton value="Menu" action="opcoes" immediate="true" process="@this"/>
 				</p:panelGrid>		
 			</h:form>
 		</div>
